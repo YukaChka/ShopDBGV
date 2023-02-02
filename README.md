@@ -13,6 +13,7 @@
 
 Код авторизации
 Пока не сделано
+
 Классы
 ![image](https://user-images.githubusercontent.com/98550812/216287317-983a8ba9-0a05-43da-8140-5f99028187ea.png)
 ![image](https://user-images.githubusercontent.com/98550812/216287340-8f171a6e-865e-42a8-a90a-9a42f1629fc9.png)
