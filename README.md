@@ -13,7 +13,7 @@
 <img width="948" alt="image" src="https://user-images.githubusercontent.com/98550812/216286634-8bc0d778-41af-4b49-aa74-ac3a0fa0ddfd.png">
 
 Код авторизации
-Пока не сделано
+![image](https://user-images.githubusercontent.com/98550812/216910581-d8fff9ab-8cd9-4154-aaa0-57058a0c3c1a.png)
 
 Классы
 ![image](https://user-images.githubusercontent.com/98550812/216287317-983a8ba9-0a05-43da-8140-5f99028187ea.png)
