@@ -1,7 +1,8 @@
 # ShopDBGV
  3isp9-13
 Структура бд
-Позже загружу
+![image](https://user-images.githubusercontent.com/98550812/216910218-3024c5de-ad19-4a74-b7e7-d6f7c7902f5e.png)
+
 Структура проекта
 <img width="310" alt="image" src="https://user-images.githubusercontent.com/98550812/216286364-585e4e4b-9f7a-43c0-8c97-3d7366997d8d.png">
 
