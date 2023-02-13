@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="965bbe83546c421dac752b8eab3a6a3a" Name="Diagram1">
+      <Diagram DiagramId="cc19cf601f30498aaac5710be1e36eab" Name="Diagram1">
         <EntityTypeShape EntityType="ShopStoreVGModel.BonusCard" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Client" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Employee" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.EmpRole" Width="1.5" PointX="1.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Client" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Employee" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.EmpRole" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Gender" Width="1.5" PointX="1.5" PointY="24.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopStoreVGModel.GenderProduct" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopStoreVGModel.Manufacturer" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopStoreVGModel.OrderHistory" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
@@ -17,7 +18,7 @@
         <EntityTypeShape EntityType="ShopStoreVGModel.Size" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopStoreVGModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopStoreVGModel.Tag" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.User" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.User" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Client_BonusCard" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Client_User" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_ProductSale_Client" ManuallyRouted="false" />
@@ -25,6 +26,7 @@
         <AssociationConnector Association="ShopStoreVGModel.FK_Employee_User" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_ProductSale_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_User_EmpRole" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopStoreVGModel.FK_User_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Product_GenderProduct" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Product_Manufacturer" ManuallyRouted="false" />
         <AssociationConnector Association="ShopStoreVGModel.FK_OrderHistory_ProductSale" ManuallyRouted="false" />

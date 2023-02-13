@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopStoreVG.ClassHelper;
+using ShopStoreVG.DB;
+using static ShopStoreVG.ClassHelper.EFClass;
 
 
 namespace ShopStoreVG.Pages
@@ -24,11 +27,48 @@ namespace ShopStoreVG.Pages
         public RegistrationPage()
         {
             InitializeComponent();
+            CmbGender.ItemsSource = ClassHelper.EFClass.Context.Gender.ToList();
+            CmbGender.SelectedIndex = 0;
+            CmbGender.DisplayMemberPath = "GenderName";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/PublicPages/Login.xaml", UriKind.Relative));
+        }
+
+        private void RegBtn(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(RegLogin.Text))
+            {
+                MessageBox.Show("Логин не может быть пустым или состоять из пробелов");
+                return;
+
+            }
+            EFClass.Context.User.Add(new User()
+            {
+                Login = RegLogin.Text,
+                Password = PegPsw.Password,
+                Birhday = DpBirthday.SelectedDate.Value,
+                IdGender = (CmbGender.SelectedItem as Gender).IdGender,
+
+
+
+            });
+            EFClass.Context.Client.Add(new Client()
+            {
+                LastName = RegLName.Text,
+                FirstName = RegFName.Text,
+                Email= RegMail.Text,
+                Phone = RegPhone.Text,
+            });
+            EFClass.Context.SaveChanges();
+
+
+            // оповещение об успехе
+            MessageBox.Show("Ok");
+
+
         }
     }
     

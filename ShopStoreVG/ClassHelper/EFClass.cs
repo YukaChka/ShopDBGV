@@ -9,6 +9,6 @@ namespace ShopStoreVG.ClassHelper
 {
     internal class EFClass
     {
-        public static ShopStoreVGEntities1 Context { get; } = new ShopStoreVGEntities1();
+        public static Entities Context { get; } = new Entities();
     }
 }

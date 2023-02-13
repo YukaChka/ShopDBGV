@@ -12,27 +12,18 @@ namespace ShopStoreVG.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Gender()
         {
-            this.Client = new HashSet<Client>();
-            this.Employee = new HashSet<Employee>();
+            this.User = new HashSet<User>();
         }
     
-        public int IDUser { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int IDRole { get; set; }
-        public Nullable<int> IdGender { get; set; }
-        public Nullable<System.DateTime> Birhday { get; set; }
+        public int IdGender { get; set; }
+        public string GenderName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
-        public virtual EmpRole EmpRole { get; set; }
-        public virtual Gender Gender { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

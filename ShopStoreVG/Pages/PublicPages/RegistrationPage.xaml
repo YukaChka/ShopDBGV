@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ShopStoreVG.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1000" d:DesignWidth="800"
       Title="RegistrationPage">
 
     <Grid>
@@ -18,14 +18,27 @@
         <StackPanel Grid.Column="1">
             
             
-            <TextBlock TextWrapping="Wrap" Text="Регистрация" Margin="10,20,10,10" Height="50" FontSize="25"/>
-            <TextBlock TextWrapping="Wrap" Margin="10,10,10,10"><Run Language="ru-ru" Text="Логин"/></TextBlock>
-            <TextBox x:Name ="RegLogin" TextWrapping="Wrap"  Margin="10,10,10,10"/>
+            <TextBlock TextWrapping="Wrap" Text="Регистрация" Margin="10,5,10,5" Height="50" FontSize="25"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,5,10,5"><Run Language="ru-ru" Text="Логин"/></TextBlock>
+            <TextBox x:Name ="RegLogin" TextWrapping="Wrap"  Margin="10,10,10,5"/>
             <TextBlock TextWrapping="Wrap" Margin="10,20,10,10"><Run Language="ru-ru" Text="Почта"/></TextBlock>
-            <TextBox x:Name="RegMail"  TextWrapping="Wrap" Margin="10,10,10,10"/>
-            <TextBlock TextWrapping="Wrap" Margin="10,20,10,10"><Run Language="ru-ru" Text="Пароль"/></TextBlock>
-            <PasswordBox x:Name="PegPsw"  Margin="10,10,10,10"/>
-            <Button Content="Регистрация" Width="90" Margin="10,10,10,10"/>
+            <TextBox x:Name="RegMail"  TextWrapping="Wrap" Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Пароль"/></TextBlock>
+            <PasswordBox x:Name="PegPsw"  Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Введите фамилию"/></TextBlock>
+            <TextBox x:Name ="RegLName" TextWrapping="Wrap"  Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Введите имя"/></TextBlock>
+            <TextBox x:Name ="RegFName" TextWrapping="Wrap"  Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Введите телефон"/></TextBlock>
+            <TextBox x:Name ="RegPhone" TextWrapping="Wrap"  Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Укажите дату рождения"/></TextBlock>
+            <DatePicker x:Name="DpBirthday" Margin="10,10,10,5"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,20,10,5"><Run Language="ru-ru" Text="Выберите пол"/></TextBlock>
+            <ComboBox x:Name="CmbGender" Margin="10,10,10,5"  />
+
+
+
+            <Button Content="Регистрация" Width="90" Margin="10,10,10,10" Click="RegBtn"/>
             <Button x:Name="ImLogin" Content="Есть аккаунт" Width="90" Margin="10,0,10,10" Click="Button_Click"/>
           
 

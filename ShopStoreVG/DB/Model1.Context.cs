@@ -15,10 +15,10 @@ namespace ShopStoreVG.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ShopStoreVGEntities1 : DbContext
+    public partial class Entities : DbContext
     {
-        public ShopStoreVGEntities1()
-            : base("name=ShopStoreVGEntities1")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -31,6 +31,7 @@ namespace ShopStoreVG.DB
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmpRole> EmpRole { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<GenderProduct> GenderProduct { get; set; }
         public virtual DbSet<Manufacturer> Manufacturer { get; set; }
         public virtual DbSet<OrderHistory> OrderHistory { get; set; }
