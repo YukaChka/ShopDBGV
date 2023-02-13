@@ -11,6 +11,10 @@
 
 Окно регистрации
 <img width="948" alt="image" src="https://user-images.githubusercontent.com/98550812/216286634-8bc0d778-41af-4b49-aa74-ac3a0fa0ddfd.png">
+Рабочая регистрация с добавлением пользователя
+![image](https://user-images.githubusercontent.com/98550812/218401699-49ad156a-3829-4cb5-8863-7ffa486c682f.png)
+
+Список товаров еще не сделан((((
 
 Код авторизации
 ![image](https://user-images.githubusercontent.com/98550812/216910581-d8fff9ab-8cd9-4154-aaa0-57058a0c3c1a.png)
