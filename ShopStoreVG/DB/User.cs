@@ -24,7 +24,7 @@ namespace ShopStoreVG.DB
         public int IDUser { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int IDRole { get; set; }
+        public Nullable<int> IDRole { get; set; }
         public Nullable<int> IdGender { get; set; }
         public Nullable<System.DateTime> Birhday { get; set; }
     
@@ -32,7 +32,6 @@ namespace ShopStoreVG.DB
         public virtual ICollection<Client> Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
-        public virtual EmpRole EmpRole { get; set; }
         public virtual Gender Gender { get; set; }
     }
 }

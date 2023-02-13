@@ -17,7 +17,5 @@ namespace ShopStoreVG.DB
         public string IDCard { get; set; }
         public int IDClient { get; set; }
         public decimal Bonus { get; set; }
-    
-        public virtual Client Client { get; set; }
     }
 }

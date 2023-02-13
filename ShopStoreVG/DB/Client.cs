@@ -27,7 +27,6 @@ namespace ShopStoreVG.DB
         public string Phone { get; set; }
         public int IDUser { get; set; }
     
-        public virtual BonusCard BonusCard { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }
