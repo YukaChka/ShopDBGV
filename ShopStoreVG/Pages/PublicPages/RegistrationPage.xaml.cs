@@ -45,6 +45,7 @@ namespace ShopStoreVG.Pages
                 return;
 
             }
+
             EFClass.Context.User.Add(new User()
             {
                 Login = RegLogin.Text,
@@ -55,13 +56,13 @@ namespace ShopStoreVG.Pages
 
 
             });
-            EFClass.Context.Client.Add(new Client()
-            {
-                LastName = RegLName.Text,
-                FirstName = RegFName.Text,
-                Email= RegMail.Text,
-                Phone = RegPhone.Text,
-            });
+            //EFClass.Context.Client.Add(new Client()
+            //{
+            //    LastName = RegLName.Text,
+            //    FirstName = RegFName.Text,
+            //    Email= RegMail.Text,
+            //    Phone = RegPhone.Text,
+            //});
             EFClass.Context.SaveChanges();
 
 
