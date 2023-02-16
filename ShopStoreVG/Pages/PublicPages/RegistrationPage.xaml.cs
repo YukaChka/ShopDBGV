@@ -68,7 +68,7 @@ namespace ShopStoreVG.Pages
             }
             if (string.IsNullOrWhiteSpace(RegPhone.Text))
             {
-                MessageBox.Show("т");
+                MessageBox.Show("Номер телефона должен быть указан");
                 return;
             }
 
