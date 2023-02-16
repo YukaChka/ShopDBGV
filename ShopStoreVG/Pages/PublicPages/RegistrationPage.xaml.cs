@@ -51,11 +51,11 @@ namespace ShopStoreVG.Pages
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(RegPsw.Password))
-            {
-                MessageBox.Show("Поле Пароль не может быть пустым");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(RegPsw.Password))
+            //{
+            //    MessageBox.Show("Поле Пароль не может быть пустым");
+            //    return;
+            //}
             if (string.IsNullOrWhiteSpace(RegLName.Text))
             {
                 MessageBox.Show("Поле Фамилия не может быть пустым или состоять из пробелов");
@@ -69,6 +69,16 @@ namespace ShopStoreVG.Pages
             if (string.IsNullOrWhiteSpace(RegPhone.Text))
             {
                 MessageBox.Show("Номер телефона должен быть указан");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(DpBirthday.Text))
+            {
+                MessageBox.Show("Дата рождения должна быть указана");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(CmbGender.Text))
+            {
+                MessageBox.Show("Пол должен быть указан");
                 return;
             }
 
