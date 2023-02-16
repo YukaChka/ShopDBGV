@@ -45,6 +45,34 @@ namespace ShopStoreVG.Pages
                 return;
 
             }
+            if (string.IsNullOrWhiteSpace(RegMail.Text))
+            {
+                MessageBox.Show("Почта должна быть указана");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(RegPsw.Password))
+            {
+                MessageBox.Show("Поле Пароль не может быть пустым");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(RegLName.Text))
+            {
+                MessageBox.Show("Поле Фамилия не может быть пустым или состоять из пробелов");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(RegFName.Text))
+            {
+                MessageBox.Show("Поле Имя не может быть пустым или состоять из пробелов");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(RegPhone.Text))
+            {
+                MessageBox.Show("т");
+                return;
+            }
+
+
 
             EFClass.Context.User.Add(new User()
             {
