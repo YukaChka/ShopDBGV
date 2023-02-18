@@ -88,6 +88,7 @@
           <Property Name="IDTag" Type="int" Nullable="false" />
           <Property Name="IDSize" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="ProductSale">
           <Key>
@@ -471,7 +472,7 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -576,6 +577,7 @@
           <Property Name="IDTag" Type="Int32" Nullable="false" />
           <Property Name="IDSize" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="GenderProduct" Relationship="ShopStoreVGModel.FK_Product_GenderProduct" FromRole="Product" ToRole="GenderProduct" />
           <NavigationProperty Name="Manufacturer" Relationship="ShopStoreVGModel.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
           <NavigationProperty Name="Size" Relationship="ShopStoreVGModel.FK_Product_Size" FromRole="Product" ToRole="Size" />
@@ -781,7 +783,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -892,6 +894,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ShopStoreVGModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IDSize" ColumnName="IDSize" />
                 <ScalarProperty Name="IDTag" ColumnName="IDTag" />
@@ -955,7 +958,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

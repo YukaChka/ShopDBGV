@@ -29,6 +29,7 @@ namespace ShopStoreVG.DB
         public int IDTag { get; set; }
         public int IDSize { get; set; }
         public string Description { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual GenderProduct GenderProduct { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }

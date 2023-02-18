@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using ShopStoreVG.ClassHelper;
+using ShopStoreVG.DB;
+using static ShopStoreVG.ClassHelper.EFClass;
 namespace ShopStoreVG.Pages
 {
     /// <summary>
@@ -23,6 +25,22 @@ namespace ShopStoreVG.Pages
         public AuthorizationPage()
         {
             InitializeComponent();
+        }
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            var userAuth = Context.User.ToList()
+                .Where(i => i.Login == TbLogin.Text && i.Password == PbPassword.Password)
+                .FirstOrDefault();
+            if (userAuth != null)
+            {
+                // go to 
+                NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }

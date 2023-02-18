@@ -51,11 +51,11 @@ namespace ShopStoreVG.Pages
                 return;
             }
 
-            //if (string.IsNullOrWhiteSpace(RegPsw.Password))
-            //{
-            //    MessageBox.Show("Поле Пароль не может быть пустым");
-            //    return;
-            //}
+            if (string.IsNullOrWhiteSpace(PegPsw.Password))
+            {
+                MessageBox.Show("Поле Пароль не может быть пустым");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(RegLName.Text))
             {
                 MessageBox.Show("Поле Фамилия не может быть пустым или состоять из пробелов");
@@ -105,7 +105,7 @@ namespace ShopStoreVG.Pages
 
 
             // оповещение об успехе
-            MessageBox.Show("Ok");
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
 
 
         }
