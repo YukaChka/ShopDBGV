@@ -26,7 +26,8 @@
 Лист товаров и добавление товара
 ![image](https://user-images.githubusercontent.com/98550812/220101785-975ee03e-d453-44a7-9f01-bd8c48a67cb0.png)
 
-<img width="1051" alt="image" src="https://user-images.githubusercontent.com/98550812/220063492-ef9b2da0-30f5-4fe2-9f60-025cfa8c4068.png">
+![image](https://user-images.githubusercontent.com/98550812/220102275-2f425c5e-8697-4e3e-92fa-0fc9fb81a7fe.png)
+
 
 код добавления
 
