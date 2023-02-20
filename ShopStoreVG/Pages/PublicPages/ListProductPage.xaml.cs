@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using ShopStoreVG.ClassHelper;
 using ShopStoreVG.DB;
 using System.IO;
+using ShopStoreVG.Pages.AdminPages;
+
 namespace ShopStoreVG.Pages.PublicPages
 {
     /// <summary>
@@ -42,11 +44,9 @@ namespace ShopStoreVG.Pages.PublicPages
 
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            //// переход на окно добавления товара
-            //AddEditProductWindow addEditProductWindow = new AddEditProductWindow();
-            //addEditProductWindow.ShowDialog();
+            NavigationService.Navigate(new Uri("/Pages/AdminPages/AddProduct.xaml", UriKind.Relative));
 
-            GetListProduct();
+
         }
     }
 }
