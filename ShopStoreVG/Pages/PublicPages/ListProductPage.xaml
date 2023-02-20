@@ -60,15 +60,15 @@
                         <StackPanel>
                             <Image Height="100"
                                    Width="90">
-                                <!--<Image.Source>
+                                <Image.Source>
                                     <Binding Path="Photo">
                                         <Binding.TargetNullValue>
                                             <ImageSource>\Res\no.jpg</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
-                                </Image.Source>-->
+                                </Image.Source>
                             </Image>
-                            <TextBlock Text="{Binding Name}"
+                            <TextBlock Text="{Binding ProductName}"
                                        Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding Price}"
                                        FontWeight="Bold"
