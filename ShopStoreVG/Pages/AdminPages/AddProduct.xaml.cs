@@ -55,7 +55,8 @@ namespace ShopStoreVG.Pages.AdminPages
             Product product = new Product();
             product.ProductName = TbName.Text;
             product.Price = Convert.ToDecimal(TbPrice.Text);
-            //product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
+            product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
+            product.IDGender = (CmbCategory.SelectedItem as GenderProduct).IDGender;
             if (pathImageProduct != null)
             {
                 product.Photo = File.ReadAllBytes(pathImageProduct);

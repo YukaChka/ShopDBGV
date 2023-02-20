@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cc19cf601f30498aaac5710be1e36eab" Name="Diagram1">
-        <EntityTypeShape EntityType="ShopStoreVGModel.BonusCard" Width="1.5" PointX="2.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Client" Width="1.5" PointX="3" PointY="17.875" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Employee" Width="1.5" PointX="3" PointY="13.875" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.EmpRole" Width="1.5" PointX="0.75" PointY="14.625" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Gender" Width="1.5" PointX="1.5" PointY="21.375" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.GenderProduct" Width="1.5" PointX="0.75" PointY="11.125" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Manufacturer" Width="1.5" PointX="0.75" PointY="5.875" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.OrderHistory" Width="1.5" PointX="7.5" PointY="2.125" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Product" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.ProductSale" Width="1.5" PointX="5.25" PointY="1.5" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Size" Width="1.5" PointX="0.75" PointY="8.875" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.Tag" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="ShopStoreVGModel.User" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.BonusCard" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Client" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Employee" Width="1.5" PointX="5.25" PointY="3" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.EmpRole" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Gender" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.GenderProduct" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Manufacturer" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.OrderHistory" Width="1.5" PointX="9.75" PointY="5.625" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Product" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.ProductSale" Width="1.5" PointX="7.5" PointY="4.875" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Size" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.Tag" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="ShopStoreVGModel.User" Width="1.5" PointX="3" PointY="3.25" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Client_User" />
         <AssociationConnector Association="ShopStoreVGModel.FK_ProductSale_Client" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Employee_EmpRole" />
@@ -28,7 +28,6 @@
         <AssociationConnector Association="ShopStoreVGModel.FK_Product_GenderProduct" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Product_Manufacturer" />
         <AssociationConnector Association="ShopStoreVGModel.FK_OrderHistory_ProductSale" />
-        <AssociationConnector Association="ShopStoreVGModel.FK_Product_Size" />
         <AssociationConnector Association="ShopStoreVGModel.FK_Product_Tag" />
         <AssociationConnector Association="ShopStoreVGModel.FK_ProductSale_Product" />
       </Diagram>
