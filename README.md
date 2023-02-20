@@ -23,3 +23,8 @@
 ![image](https://user-images.githubusercontent.com/98550812/216287317-983a8ba9-0a05-43da-8140-5f99028187ea.png)
 ![image](https://user-images.githubusercontent.com/98550812/216287340-8f171a6e-865e-42a8-a90a-9a42f1629fc9.png)
 
+Лист товаров и добавление товара (Я забыл вывести название, в скорем времени исправлю)
+<img width="1243" alt="image" src="https://user-images.githubusercontent.com/98550812/220063236-3ef357e2-7be7-4f9d-a4fe-9b7705ea49bd.png">
+<img width="1051" alt="image" src="https://user-images.githubusercontent.com/98550812/220063492-ef9b2da0-30f5-4fe2-9f60-025cfa8c4068.png">
+
+
