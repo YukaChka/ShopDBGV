@@ -24,10 +24,10 @@ namespace ShopStoreVG.DB
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
-        public int IDManufacturer { get; set; }
-        public int IDGender { get; set; }
-        public int IDTag { get; set; }
-        public int IDSize { get; set; }
+        public Nullable<int> IDManufacturer { get; set; }
+        public Nullable<int> IDGender { get; set; }
+        public Nullable<int> IDTag { get; set; }
+        public Nullable<int> IDSize { get; set; }
         public string Description { get; set; }
         public byte[] Photo { get; set; }
     

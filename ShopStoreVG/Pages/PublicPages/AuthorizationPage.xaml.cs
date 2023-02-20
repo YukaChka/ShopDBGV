@@ -33,9 +33,8 @@ namespace ShopStoreVG.Pages
                 .FirstOrDefault();
             if (userAuth != null)
             {
-                // go to 
                 NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
-            }
+         }
             else
             {
                 MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -63,7 +63,7 @@
                                 <Image.Source>
                                     <Binding Path="ProductImage">
                                         <Binding.TargetNullValue>
-                                            <ImageSource>/Res/no.jpeg</ImageSource>
+                                            <ImageSource>C:\Users\IMac9\Desktop\VG\ShopDBGV\ShopDBGV\ShopStoreVG\Res\slon.jpg</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>

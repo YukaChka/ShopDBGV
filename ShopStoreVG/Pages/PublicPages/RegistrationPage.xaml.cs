@@ -34,7 +34,7 @@ namespace ShopStoreVG.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/PublicPages/Login.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/AuthorizationPage.xaml", UriKind.Relative));
         }
 
         private void RegBtn(object sender, RoutedEventArgs e)
@@ -104,7 +104,6 @@ namespace ShopStoreVG.Pages
             EFClass.Context.SaveChanges();
 
 
-            // оповещение об успехе
             NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
 
 

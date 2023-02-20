@@ -58,7 +58,7 @@ namespace ShopStoreVG.Pages.AdminPages
             product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
             if (pathImageProduct != null)
             {
-                product.Pho = File.ReadAllBytes(pathImageProduct);
+                product.Photo = File.ReadAllBytes(pathImageProduct);
             }
 
 
@@ -67,7 +67,7 @@ namespace ShopStoreVG.Pages.AdminPages
 
             MessageBox.Show("Товар добавлен");
 
-            this.Close();
+
         }
     }
 }
