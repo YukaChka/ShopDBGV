@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         MinHeight="1080" MinWidth="1920"
+        WindowStartupLocation="CenterScreen"
         >
 
 
@@ -40,7 +41,7 @@
                 VerticalAlignment="Center"/>
 
 
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Content="Frame" Grid.Row="1" Margin="0,0,-850,0"/>
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Content="Frame" Grid.Row="1" Margin="0,0,-1490,0"/>
 
 
 

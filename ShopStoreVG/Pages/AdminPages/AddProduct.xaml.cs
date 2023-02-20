@@ -26,15 +26,73 @@ namespace ShopStoreVG.Pages.AdminPages
     public partial class AddProduct : Page
     {
         private string pathImageProduct = null;
+        private bool isEdit = false;
+        Product editProduct;
 
         public AddProduct()
         {
+
+            InitializeComponent();
+            CmbCategory.ItemsSource = EFClass.Context.Tag.ToList();
+            CmbCategory.DisplayMemberPath = "TagName";
+            CmbCategory.SelectedIndex = 0;
+
+            CmbGender.ItemsSource = EFClass.Context.GenderProduct.ToList();
+            CmbGender.DisplayMemberPath = "GenderName";
+            CmbGender.SelectedIndex = 0;
+        }
+
+        public AddProduct(Product product)
+        {
             InitializeComponent();
 
+            // Заполнение комбобокса
+
             CmbCategory.ItemsSource = EFClass.Context.Tag.ToList();
-            CmbCategory.DisplayMemberPath = "Name";
+            CmbCategory.DisplayMemberPath = "TagName";
             CmbCategory.SelectedIndex = 0;
+
+
+            CmbGender.ItemsSource = EFClass.Context.GenderProduct.ToList();
+            CmbGender.DisplayMemberPath = "GenderName";
+            CmbGender.SelectedIndex = 0;
+
+            // заполнение полей значениями 
+            TbName.Text = product.ProductName;
+            TbPrice.Text = product.Price.ToString();
+            CmbCategory.SelectedItem = EFClass.Context.Tag.ToList().Where(i => i.IDTag == product.IDTag).FirstOrDefault();
+            CmbGender.SelectedItem = EFClass.Context.GenderProduct.ToList().Where(i => i.IDGender == product.IDGender).FirstOrDefault();
+
+            // вывод фото
+
+            if (product.Photo != null)
+            {
+                using (MemoryStream ms = new MemoryStream(product.Photo))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmapImage.StreamSource = ms;
+                    bitmapImage.EndInit();
+                    ImgProduct.Source = bitmapImage;
+                }
+            }
+
+
+            // Изменение заголовка и кнопки 
+
+            TblockTitle.Text = "Изменение товара";
+            BtnAddProduct.Content = "Изменить";
+
+            // флаг на изменение
+            isEdit = true;
+
+            // выводим из контекста класса полученный продукт
+            editProduct = product;
         }
+
+
 
         private void BtnChooseImage_Click(object sender, RoutedEventArgs e)
         {
@@ -51,20 +109,42 @@ namespace ShopStoreVG.Pages.AdminPages
         {
             // валидация 
 
-            // добавление
-            Product product = new Product();
-            product.ProductName = TbName.Text;
-            product.Price = Convert.ToDecimal(TbPrice.Text);
-            product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
-            product.IDGender = (CmbCategory.SelectedItem as GenderProduct).IDGender;
-            if (pathImageProduct != null)
+            if (isEdit)
             {
-                product.Photo = File.ReadAllBytes(pathImageProduct);
+                // редактирование
+
+                editProduct.ProductName = TbName.Text;
+                editProduct.Price = Convert.ToDecimal(TbPrice.Text);
+                editProduct.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
+                if (pathImageProduct != null)
+                {
+                    editProduct.Photo = File.ReadAllBytes(pathImageProduct);
+                }
+
+                EFClass.Context.SaveChanges();
+
+                MessageBox.Show("Товар успешно изменен");
+
+
             }
+            else
+            {
+                // добавление
+                Product product = new Product();
+                product.ProductName = TbName.Text;
+                product.Price = Convert.ToDecimal(TbPrice.Text);
+                product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
+                product.IDGender = (CmbGender.SelectedItem as GenderProduct).IDGender;
+                if (pathImageProduct != null)
+                {
+                    product.Photo = File.ReadAllBytes(pathImageProduct);
+                }
 
+                EFClass.Context.Product.Add(product);
+                EFClass.Context.SaveChanges();
 
-            EFClass.Context.Product.Add(product);
-            EFClass.Context.SaveChanges();
+                MessageBox.Show("Товар добавлен");
+            }
 
             NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
 

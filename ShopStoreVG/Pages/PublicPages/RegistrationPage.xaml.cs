@@ -30,6 +30,7 @@ namespace ShopStoreVG.Pages
             CmbGender.ItemsSource = EFClass.Context.Gender.ToList();
             CmbGender.SelectedIndex = 0;
             CmbGender.DisplayMemberPath = "GenderName";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

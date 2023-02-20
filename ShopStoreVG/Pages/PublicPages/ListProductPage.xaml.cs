@@ -48,5 +48,20 @@ namespace ShopStoreVG.Pages.PublicPages
 
 
         }
+
+        private void BtnEditProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            NavigationService.Navigate(new Uri("/Pages/AdminPages/AddProduct.xaml", UriKind.Relative));
+
+            GetListProduct();
+        }
     }
 }

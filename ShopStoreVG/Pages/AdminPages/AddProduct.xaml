@@ -11,7 +11,9 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <TextBlock Text="Добавление товара"
+            <TextBlock 
+                       Name="TblockTitle"
+                       Text="Добавление товара"
                        FontSize="30"
                        HorizontalAlignment="Center"/>
 

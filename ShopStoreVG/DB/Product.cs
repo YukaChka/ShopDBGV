@@ -27,11 +27,13 @@ namespace ShopStoreVG.DB
         public Nullable<int> IDManufacturer { get; set; }
         public Nullable<int> IDGender { get; set; }
         public Nullable<int> IDTag { get; set; }
+        public Nullable<int> IDSize { get; set; }
         public string Description { get; set; }
         public byte[] Photo { get; set; }
     
         public virtual GenderProduct GenderProduct { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
+        public virtual Size Size { get; set; }
         public virtual Tag Tag { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }

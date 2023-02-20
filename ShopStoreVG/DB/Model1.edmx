@@ -86,6 +86,7 @@
           <Property Name="IDManufacturer" Type="int" />
           <Property Name="IDGender" Type="int" />
           <Property Name="IDTag" Type="int" />
+          <Property Name="IDSize" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
@@ -204,6 +205,18 @@
             </Principal>
             <Dependent Role="Product">
               <PropertyRef Name="IDManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Size">
+          <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="IDSize" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IDSize" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -337,6 +350,10 @@
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_Size" Association="Self.FK_Product_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_Tag" Association="Self.FK_Product_Tag">
             <End Role="Tag" EntitySet="Tag" />
             <End Role="Product" EntitySet="Product" />
@@ -442,6 +459,10 @@
           <AssociationSet Name="FK_OrderHistory_ProductSale" Association="ShopStoreVGModel.FK_OrderHistory_ProductSale">
             <End Role="ProductSale" EntitySet="ProductSale" />
             <End Role="OrderHistory" EntitySet="OrderHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Size" Association="ShopStoreVGModel.FK_Product_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Tag" Association="ShopStoreVGModel.FK_Product_Tag">
             <End Role="Tag" EntitySet="Tag" />
@@ -554,10 +575,12 @@
           <Property Name="IDManufacturer" Type="Int32" />
           <Property Name="IDGender" Type="Int32" />
           <Property Name="IDTag" Type="Int32" />
+          <Property Name="IDSize" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="GenderProduct" Relationship="ShopStoreVGModel.FK_Product_GenderProduct" FromRole="Product" ToRole="GenderProduct" />
           <NavigationProperty Name="Manufacturer" Relationship="ShopStoreVGModel.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
+          <NavigationProperty Name="Size" Relationship="ShopStoreVGModel.FK_Product_Size" FromRole="Product" ToRole="Size" />
           <NavigationProperty Name="Tag" Relationship="ShopStoreVGModel.FK_Product_Tag" FromRole="Product" ToRole="Tag" />
           <NavigationProperty Name="ProductSale" Relationship="ShopStoreVGModel.FK_ProductSale_Product" FromRole="Product" ToRole="ProductSale" />
         </EntityType>
@@ -582,6 +605,7 @@
           </Key>
           <Property Name="IDSize" Type="Int32" Nullable="false" />
           <Property Name="Size1" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="ShopStoreVGModel.FK_Product_Size" FromRole="Size" ToRole="Product" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -723,6 +747,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Size">
+          <End Type="ShopStoreVGModel.Size" Role="Size" Multiplicity="0..1" />
+          <End Type="ShopStoreVGModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="IDSize" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IDSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_Tag">
           <End Type="ShopStoreVGModel.Tag" Role="Tag" Multiplicity="0..1" />
           <End Type="ShopStoreVGModel.Product" Role="Product" Multiplicity="*" />
@@ -860,6 +896,7 @@
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IDSize" ColumnName="IDSize" />
                 <ScalarProperty Name="IDTag" ColumnName="IDTag" />
                 <ScalarProperty Name="IDGender" ColumnName="IDGender" />
                 <ScalarProperty Name="IDManufacturer" ColumnName="IDManufacturer" />
