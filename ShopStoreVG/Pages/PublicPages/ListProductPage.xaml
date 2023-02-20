@@ -61,9 +61,9 @@
                             <Image Height="100"
                                    Width="90">
                                 <Image.Source>
-                                    <Binding Path="ProductImage">
+                                    <Binding Path="Photo">
                                         <Binding.TargetNullValue>
-                                            <ImageSource>C:\Users\IMac9\Desktop\VG\ShopDBGV\ShopDBGV\ShopStoreVG\Res\slon.jpg</ImageSource>
+                                            <ImageSource>\Res\slon.jpg</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>

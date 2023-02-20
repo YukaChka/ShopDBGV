@@ -27,7 +27,7 @@ namespace ShopStoreVG.Pages
         public RegistrationPage()
         {
             InitializeComponent();
-            CmbGender.ItemsSource = ClassHelper.EFClass.Context.Gender.ToList();
+            CmbGender.ItemsSource = EFClass.Context.Gender.ToList();
             CmbGender.SelectedIndex = 0;
             CmbGender.DisplayMemberPath = "GenderName";
         }
@@ -103,7 +103,7 @@ namespace ShopStoreVG.Pages
             });
             EFClass.Context.SaveChanges();
 
-
+            //перемещение по страницам
             NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
 
 

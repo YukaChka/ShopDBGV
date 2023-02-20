@@ -55,7 +55,7 @@ namespace ShopStoreVG.Pages.AdminPages
             Product product = new Product();
             product.ProductName = TbName.Text;
             product.Price = Convert.ToDecimal(TbPrice.Text);
-            product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
+            //product.IDTag = (CmbCategory.SelectedItem as Tag).IDTag;
             if (pathImageProduct != null)
             {
                 product.Photo = File.ReadAllBytes(pathImageProduct);
@@ -65,8 +65,7 @@ namespace ShopStoreVG.Pages.AdminPages
             EFClass.Context.Product.Add(product);
             EFClass.Context.SaveChanges();
 
-            MessageBox.Show("Товар добавлен");
-
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
 
         }
     }
