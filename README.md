@@ -26,9 +26,13 @@
 Лист товаров и добавление товара (Я забыл вывести название, в скорем времени исправлю)
 <img width="1243" alt="image" src="https://user-images.githubusercontent.com/98550812/220063236-3ef357e2-7be7-4f9d-a4fe-9b7705ea49bd.png">
 <img width="1051" alt="image" src="https://user-images.githubusercontent.com/98550812/220063492-ef9b2da0-30f5-4fe2-9f60-025cfa8c4068.png">
+
 код добавления
+
 <img width="505" alt="image" src="https://user-images.githubusercontent.com/98550812/220064344-d4e1540e-d515-40a2-a6dd-57949c231940.png">
+
 код листа с продуктами
+
 <img width="616" alt="image" src="https://user-images.githubusercontent.com/98550812/220064588-64626a6c-849a-4256-b297-9c43dfbd36ef.png">
 
 
