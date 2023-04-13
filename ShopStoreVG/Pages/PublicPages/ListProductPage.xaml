@@ -9,13 +9,15 @@
       Title="ListProductPage">
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-
+        <Label
+            Background="#FFF2DDC6" />
         <TextBlock Text="Список товаров"
                    FontSize="30"
                    HorizontalAlignment="Center"/>
@@ -23,6 +25,8 @@
 
 
         <ListView x:Name="LvProduct"
+                  BorderBrush="#FDF4E3"
+                  Background="#FDF4E3"
                   Grid.Row="2"
                   Margin="5" 
                   d:ItemsSource="{d:SampleData ItemCount=15}"
@@ -52,7 +56,7 @@
                 <DataTemplate>
                     <!-- Шаблон одного элемета -->
 
-                    <Border BorderBrush="DarkGray"
+                    <Border BorderBrush="#B39F7A"
                             BorderThickness="2"
                             Width="100"
                             Height="150"

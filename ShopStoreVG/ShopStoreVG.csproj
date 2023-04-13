@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPages\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PublicPages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +137,7 @@
     </Compile>
     <Compile Include="ClassHelper\EFClass.cs" />
     <Compile Include="ClassHelper\NavigateClass.cs" />
+    <Compile Include="ClassHelper\UserDataClass.cs" />
     <Compile Include="DB\BonusCard.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -198,6 +203,9 @@
     </Compile>
     <Compile Include="Pages\AdminPages\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PublicPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>

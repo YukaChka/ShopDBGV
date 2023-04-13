@@ -12,7 +12,7 @@
 
 
         <Label
-            Background="White" />
+            Background="#FFF2DDC6" />
         <StackPanel Orientation="Vertical" Margin="40 0 40 0 " >
             <TextBlock Text="Авторизация" 
                        FontSize="40" 

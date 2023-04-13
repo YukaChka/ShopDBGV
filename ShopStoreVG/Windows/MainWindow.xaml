@@ -16,6 +16,13 @@
 
 
     <Grid>
+        <Grid.Background>
+            <RadialGradientBrush RadiusX="2" RadiusY="-1">
+                <GradientStop Color="#FFB6A27E" Offset="0.17"/>
+                <GradientStop Color="#FFB39F7A" Offset="1"/>
+                <GradientStop Color="#FFF2DDC6" Offset="0.932"/>
+            </RadialGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="120*"/>
@@ -26,14 +33,14 @@
         </Grid.ColumnDefinitions>
 
 
-       
-            <Button x:Name="PersAccount" 
+
+        <Button x:Name="PersAccount" 
                     Grid.Row="0"
                     Grid.Column="1"
                 Content="Button" 
                 HorizontalAlignment="Right" Margin="0,0,60,0" 
                 VerticalAlignment="Center"/>
-            <Button x:Name="PersBasket" 
+        <Button x:Name="PersBasket" 
                 Grid.Row="0"
                 Grid.Column="1"
                 Content="Button" 
@@ -41,7 +48,7 @@
                 VerticalAlignment="Center"/>
 
 
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Content="Frame" Grid.Row="1" Margin="0,0,-1490,0"/>
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Content="Frame" Grid.Row="1" Margin="0,0,-1490,0" Background="#FFF2DDC6"/>
 
 
 

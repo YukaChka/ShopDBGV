@@ -31,10 +31,43 @@ namespace ShopStoreVG.Pages
             var userAuth = Context.User.ToList()
                 .Where(i => i.Login == TbLogin.Text && i.Password == PbPassword.Password)
                 .FirstOrDefault();
+
+
+
             if (userAuth != null)
             {
-                NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
-         }
+                // сохранияем данные входа
+                ClassHelper.UserDataClass.User = userAuth;
+
+                var emplAuth = Context.Employee.Where(i => i.IDUser == userAuth.IDUser).FirstOrDefault();
+                var qwe = Context.User.Where(i => i.IDRole == userAuth.IDUser).FirstOrDefault();
+                if (qwe.IDRole == 1)
+                {
+                    // если не пустой то Работник
+
+                    // сохранияем данные входа
+
+                    ClassHelper.UserDataClass.Employee = emplAuth;
+
+
+                            // переход на страницу директора
+                            NavigationService.Navigate(new Uri("/Pages/AdminPages/AdminPage.xaml", UriKind.Relative));
+
+
+
+                }
+                else
+                {
+                    // Client
+
+                    // сохраняем клиента
+                    ClassHelper.UserDataClass.User = userAuth;
+                    NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
+
+                }
+
+
+            }
             else
             {
                 MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
