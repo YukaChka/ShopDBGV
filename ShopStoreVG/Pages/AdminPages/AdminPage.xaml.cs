@@ -30,5 +30,11 @@ namespace ShopStoreVG.Pages.AdminPages
         {
             NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AdminPages/StaffPage.xaml", UriKind.Relative));
+
+        }
     }
 }

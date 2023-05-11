@@ -15,7 +15,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Button BorderBrush="Black" Background="#B39F7A" Content="Сотрудники" Grid.Column="0" Margin="200,20,200,20" FontSize="30"/>
+        <Button BorderBrush="Black" Background="#B39F7A" Content="Сотрудники" Grid.Column="0" Margin="200,20,200,20" FontSize="30" Click="Button_Click"/>
         <Button BorderBrush="Black" Background="#B39F7A" Content="Товары" Grid.Column="1"  Margin="200,20,200,20" Grid.Row="1" FontSize="30"
                 Click="Button_Click_Product"
                 />

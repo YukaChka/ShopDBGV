@@ -23,16 +23,16 @@ namespace ShopStoreVG.Pages.PublicPages
     /// <summary>
     /// Логика взаимодействия для ListProductPage.xaml
     /// </summary>
-    public partial class ListProduct : Page
+    public partial class ListProductPage : Page
     {
         //private string pathImageProduct = null;
 
-        public ListProduct()
+        public ListProductPage()
         {
             InitializeComponent();
 
             GetListProduct();
-        }
+        }   
 
         private void GetListProduct()
         {
@@ -48,7 +48,7 @@ namespace ShopStoreVG.Pages.PublicPages
 
 
         }
-
+         
         private void BtnEditProduct_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;

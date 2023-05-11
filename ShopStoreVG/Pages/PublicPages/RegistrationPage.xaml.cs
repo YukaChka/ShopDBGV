@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using ShopStoreVG.ClassHelper;
 using ShopStoreVG.DB;
 using static ShopStoreVG.ClassHelper.EFClass;
-
+using System.Text.RegularExpressions;
 
 namespace ShopStoreVG.Pages
 {
@@ -38,6 +38,8 @@ namespace ShopStoreVG.Pages
             NavigationService.Navigate(new Uri("/Pages/PublicPages/AuthorizationPage.xaml", UriKind.Relative));
         }
 
+
+        //валидация
         private void RegBtn(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(RegLogin.Text))
@@ -46,43 +48,57 @@ namespace ShopStoreVG.Pages
                 return;
 
             }
+
+
+
             if (string.IsNullOrWhiteSpace(RegMail.Text))
             {
                 MessageBox.Show("Почта должна быть указана");
                 return;
             }
 
+
+
             if (string.IsNullOrWhiteSpace(PegPsw.Password))
             {
                 MessageBox.Show("Поле Пароль не может быть пустым");
                 return;
             }
+
+
+
             if (string.IsNullOrWhiteSpace(RegLName.Text))
             {
                 MessageBox.Show("Поле Фамилия не может быть пустым или состоять из пробелов");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(RegFName.Text))
-            {
-                MessageBox.Show("Поле Имя не может быть пустым или состоять из пробелов");
-                return;
-            }
+            
+
+
+
             if (string.IsNullOrWhiteSpace(RegPhone.Text))
             {
-                MessageBox.Show("Номер телефона должен быть указан");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(DpBirthday.Text))
-            {
-                MessageBox.Show("Дата рождения должна быть указана");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(CmbGender.Text))
-            {
-                MessageBox.Show("Пол должен быть указан");
-                return;
+                 MessageBox.Show("Номер телефона должен быть указан");
+                 return;
             }
 
+
+
+
+            if (string.IsNullOrWhiteSpace(DpBirthday.Text))
+            {
+                 MessageBox.Show("Дата рождения должна быть указана");
+                 return;
+            }
+
+
+
+            if (string.IsNullOrWhiteSpace(CmbGender.Text))
+            {
+                 MessageBox.Show("Пол должен быть указан");
+                 return;
+            }
+           
 
 
             EFClass.Context.User.Add(new User()
