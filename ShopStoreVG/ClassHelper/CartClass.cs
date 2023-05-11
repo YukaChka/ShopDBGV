@@ -8,6 +8,6 @@ namespace ShopStoreVG.ClassHelper
 {
     internal class CartClass
     {
-
+        public static List<DB.Product> products = new List<DB.Product>();
     }
 }
