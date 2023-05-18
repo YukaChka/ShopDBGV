@@ -188,6 +188,9 @@
     <Compile Include="DB\ProductSale.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\Size.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

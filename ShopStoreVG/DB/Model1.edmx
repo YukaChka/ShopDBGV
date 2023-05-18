@@ -18,10 +18,6 @@
             <PropertyRef Name="IDClient" />
           </Key>
           <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
@@ -29,13 +25,8 @@
             <PropertyRef Name="IDEmployee" />
           </Key>
           <Property Name="IDEmployee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
-          <Property Name="IDRole" Type="int" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="EmpRole">
           <Key>
@@ -101,6 +92,13 @@
           <Property Name="IDProduct" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="int" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Size">
           <Key>
             <PropertyRef Name="IDSize" />
@@ -135,6 +133,11 @@
           <Property Name="IDRole" Type="int" />
           <Property Name="IdGender" Type="int" />
           <Property Name="Birhday" Type="datetime" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronumic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nchar" MaxLength="12" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Client_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -145,18 +148,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="IDUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_EmpRole">
-          <End Role="EmpRole" Type="Self.EmpRole" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpRole">
-              <PropertyRef Name="IDRole" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IDRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -268,6 +259,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_EmpRole">
+          <End Role="EmpRole" Type="Self.EmpRole" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmpRole">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -322,6 +325,7 @@
           <EntitySet Name="OrderHistory" EntityType="Self.OrderHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductSale" EntityType="Self.ProductSale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
@@ -329,10 +333,6 @@
           <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_EmpRole" Association="Self.FK_Employee_EmpRole">
-            <End Role="EmpRole" EntitySet="EmpRole" />
-            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
             <End Role="User" EntitySet="User" />
@@ -369,6 +369,10 @@
           <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_EmpRole" Association="Self.FK_User_EmpRole">
+            <End Role="EmpRole" EntitySet="EmpRole" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -420,6 +424,7 @@
           <EntitySet Name="OrderHistory" EntityType="ShopStoreVGModel.OrderHistory" />
           <EntitySet Name="Product" EntityType="ShopStoreVGModel.Product" />
           <EntitySet Name="ProductSale" EntityType="ShopStoreVGModel.ProductSale" />
+          <EntitySet Name="Role" EntityType="ShopStoreVGModel.Role" />
           <EntitySet Name="Size" EntityType="ShopStoreVGModel.Size" />
           <EntitySet Name="sysdiagrams" EntityType="ShopStoreVGModel.sysdiagrams" />
           <EntitySet Name="Tag" EntityType="ShopStoreVGModel.Tag" />
@@ -432,10 +437,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_EmpRole" Association="ShopStoreVGModel.FK_Employee_EmpRole">
-            <End Role="EmpRole" EntitySet="EmpRole" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_User" Association="ShopStoreVGModel.FK_Employee_User">
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
@@ -443,6 +444,10 @@
           <AssociationSet Name="FK_ProductSale_Employee" Association="ShopStoreVGModel.FK_ProductSale_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_EmpRole" Association="ShopStoreVGModel.FK_User_EmpRole">
+            <End Role="EmpRole" EntitySet="EmpRole" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Gender" Association="ShopStoreVGModel.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -497,10 +502,6 @@
             <PropertyRef Name="IDClient" />
           </Key>
           <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="ShopStoreVGModel.FK_Client_User" FromRole="Client" ToRole="User" />
           <NavigationProperty Name="ProductSale" Relationship="ShopStoreVGModel.FK_ProductSale_Client" FromRole="Client" ToRole="ProductSale" />
@@ -510,14 +511,8 @@
             <PropertyRef Name="IDEmployee" />
           </Key>
           <Property Name="IDEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IDRole" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EmpRole" Relationship="ShopStoreVGModel.FK_Employee_EmpRole" FromRole="Employee" ToRole="EmpRole" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="User" Relationship="ShopStoreVGModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
           <NavigationProperty Name="ProductSale" Relationship="ShopStoreVGModel.FK_ProductSale_Employee" FromRole="Employee" ToRole="ProductSale" />
         </EntityType>
@@ -527,7 +522,7 @@
           </Key>
           <Property Name="IDRole" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="ShopStoreVGModel.FK_Employee_EmpRole" FromRole="EmpRole" ToRole="Employee" />
+          <NavigationProperty Name="User" Relationship="ShopStoreVGModel.FK_User_EmpRole" FromRole="EmpRole" ToRole="User" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -599,6 +594,13 @@
           <NavigationProperty Name="OrderHistory" Relationship="ShopStoreVGModel.FK_OrderHistory_ProductSale" FromRole="ProductSale" ToRole="OrderHistory" />
           <NavigationProperty Name="Product" Relationship="ShopStoreVGModel.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="Int32" Nullable="false" />
+          <Property Name="NameRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Size">
           <Key>
             <PropertyRef Name="IDSize" />
@@ -635,8 +637,14 @@
           <Property Name="IDRole" Type="Int32" />
           <Property Name="IdGender" Type="Int32" />
           <Property Name="Birhday" Type="DateTime" Precision="3" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronumic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="ShopStoreVGModel.FK_Client_User" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="ShopStoreVGModel.FK_Employee_User" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="EmpRole" Relationship="ShopStoreVGModel.FK_User_EmpRole" FromRole="User" ToRole="EmpRole" />
           <NavigationProperty Name="Gender" Relationship="ShopStoreVGModel.FK_User_Gender" FromRole="User" ToRole="Gender" />
         </EntityType>
         <Association Name="FK_Client_User">
@@ -663,18 +671,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_EmpRole">
-          <End Type="ShopStoreVGModel.EmpRole" Role="EmpRole" Multiplicity="1" />
-          <End Type="ShopStoreVGModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmpRole">
-              <PropertyRef Name="IDRole" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IDRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_User">
           <End Type="ShopStoreVGModel.User" Role="User" Multiplicity="1" />
           <End Type="ShopStoreVGModel.Employee" Role="Employee" Multiplicity="*" />
@@ -696,6 +692,18 @@
             </Principal>
             <Dependent Role="ProductSale">
               <PropertyRef Name="IDEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_EmpRole">
+          <End Type="ShopStoreVGModel.EmpRole" Role="EmpRole" Multiplicity="0..1" />
+          <End Type="ShopStoreVGModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmpRole">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -826,10 +834,6 @@
             <EntityTypeMapping TypeName="ShopStoreVGModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -837,13 +841,8 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="ShopStoreVGModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -919,6 +918,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="ShopStoreVGModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Size">
             <EntityTypeMapping TypeName="ShopStoreVGModel.Size">
               <MappingFragment StoreEntitySet="Size">
@@ -949,6 +956,11 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ShopStoreVGModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Patronumic" ColumnName="Patronumic" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Birhday" ColumnName="Birhday" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="IDRole" ColumnName="IDRole" />

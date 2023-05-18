@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using ShopStoreVG.ClassHelper;
 using ShopStoreVG.DB;
 using System.IO;
@@ -23,29 +22,30 @@ namespace ShopStoreVG.Pages.AdminPages
     /// <summary>
     /// Логика взаимодействия для StaffPage.xaml
     /// </summary>
+    
     public partial class StaffPage : Page
     {
-        Entities e = new Entities();
+        Entities ent = new Entities();
         public StaffPage()
         {
             InitializeComponent();
-
             GetListProduct();
+
         }
         private void GetListProduct()
         {
-            var query =
-
-                from U in e.Employee join R in e.EmpRole on U.IDRole equals R.IDRole
-                where U.IDRole == 1 || U.IDRole == 2
-                orderby U.LastName
-                select new {LastName = U.LastName, U.FirstName, U.Patronymic, R.RoleName };
+            var q = from u in ent.User join emp in ent.Employee on u.IDUser equals emp.IDUser join r in ent.Role on u.IDRole equals r.IDRole
+                   select new { LastName = u.LastName, FirstName = u.Firstname, Patronumic = u.Patronumic, Phone = u.Phone, Email = u.Email, Role = r.NameRole, Salary = emp.Salary };
 
 
-            List<Employee> staff = new List<Employee>();
-            staff = EFClass.Context.Employee.ToList();
 
-            LvStaff.ItemsSource = staff;
+            //List<Employee> staff = new List<Employee>();
+
+            List x = 
+
+
+
+            LvStaff.ItemsSource = q;
         }
 
         private void BtnAddStaff_Click(object sender, RoutedEventArgs e)

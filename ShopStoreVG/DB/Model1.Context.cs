@@ -37,6 +37,7 @@ namespace ShopStoreVG.DB
         public virtual DbSet<OrderHistory> OrderHistory { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductSale> ProductSale { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }

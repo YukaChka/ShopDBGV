@@ -17,13 +17,13 @@ namespace ShopStoreVG.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EmpRole()
         {
-            this.Employee = new HashSet<Employee>();
+            this.User = new HashSet<User>();
         }
     
         public int IDRole { get; set; }
         public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

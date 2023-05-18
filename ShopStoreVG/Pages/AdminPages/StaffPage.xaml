@@ -65,9 +65,9 @@
 
                             <TextBlock Text="{Binding LastName}"
                                        Margin="5 0 0 0"/>
-                            <TextBlock Text="{Binding FirstName}"
+                            <TextBlock Text="{Binding Firstname}"
                                        Margin="5 0 0 0"/>
-                            <TextBlock Text="{Binding Patronymic}"
+                            <TextBlock Text="{Binding Patronumic}"
    
                                        Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding RoleName}"
@@ -79,11 +79,17 @@
                             <TextBlock Text="{Binding Email}"
                                        FontWeight="Bold"
                                        Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding Salary}"
+                                       FontWeight="Bold"
+                                       Margin="5 0 0 0"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+
+
 
 
         <Button x:Name="BtnAddStaff"

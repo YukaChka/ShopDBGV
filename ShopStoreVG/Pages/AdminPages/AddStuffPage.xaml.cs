@@ -26,18 +26,21 @@ namespace ShopStoreVG.Pages.AdminPages
     {
         public AddStuffPage()
         {
+
+            InitializeComponent();
+
+
             CmbRole.ItemsSource = EFClass.Context.EmpRole.ToList();
             CmbRole.DisplayMemberPath = "RoleName";
             CmbRole.SelectedIndex = 0;
-            InitializeComponent();
         }
 
-        public AddStuffPage(Employee employee)
+        public AddStuffPage(Employee user)
         {
             InitializeComponent();
-            CmbRole.ItemsSource = EFClass.Context.EmpRole.ToList();
-            CmbRole.DisplayMemberPath = "RoleName";
-            CmbRole.SelectedIndex = 0;
+
+
+            CmbRole.SelectedItem = EFClass.Context.User.ToList().Where(i => i.IDRole == user.IDUser).FirstOrDefault();
 
         }
 
@@ -48,6 +51,22 @@ namespace ShopStoreVG.Pages.AdminPages
         private void BtnAddStuff_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = new Employee();
+            //employee.Salary = 
+            User user = new User();
+            user.Phone = TbPhone.Text;
+            user.Email = TbMail.Text;
+            user.Login = TbLogin.Text;
+            user.Password = TbPsw.Text;
+            user.IDRole = (CmbRole.SelectedItem as EmpRole).IDRole;
+            user.LastName = TbLName.Text;
+            user.Firstname = TbFName.Text;
+            user.Patronumic = TbPatronymic.Text;
+
+            EFClass.Context.Employee.Add(employee);
+            EFClass.Context.User.Add(user);
+            EFClass.Context.SaveChanges();
+
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/StaffPage.xaml", UriKind.Relative));
         }
     }
 }

@@ -12,19 +12,9 @@ namespace ShopStoreVG.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Role
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
-        {
-            this.ProductSale = new HashSet<ProductSale>();
-        }
-    
-        public int IDClient { get; set; }
-        public int IDUser { get; set; }
-    
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductSale> ProductSale { get; set; }
+        public int IDRole { get; set; }
+        public string NameRole { get; set; }
     }
 }

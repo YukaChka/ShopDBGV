@@ -21,15 +21,9 @@ namespace ShopStoreVG.DB
         }
     
         public int IDEmployee { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int IDRole { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
         public int IDUser { get; set; }
+        public Nullable<decimal> Salary { get; set; }
     
-        public virtual EmpRole EmpRole { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }

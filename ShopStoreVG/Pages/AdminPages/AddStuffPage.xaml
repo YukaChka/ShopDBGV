@@ -49,16 +49,6 @@
                      FontSize="18"
                      Margin="0 0 0 0"
                        HorizontalAlignment="Center"/>
-            <TextBlock Text="Выберите должность сотрудника"
-                       FontSize="18"
-                       Margin="0 30 0 0"
-                       HorizontalAlignment="Center"/>
-            <ComboBox x:Name="CmbRole" 
-                      Width="250"
-                     Height="30"
-                     FontSize="18"
-                     Margin="0 0 0 0"
-                       HorizontalAlignment="Center"/>
 
 
             <TextBlock Text="Номер телефона сотрудника"
@@ -103,9 +93,19 @@
                      Margin="0 0 0 0"
                        HorizontalAlignment="Center"/>
 
+            <TextBlock Text="Роль"
+                       FontSize="18"
+                       Margin="0 30 0 0"
+                       HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CmbRole"
+                       Width="250"
+                     Height="30"
+                     FontSize="18"
+                     Margin="0 0 0 0"/>
 
 
-            <Button x:Name="BtnAddStuff"
+
+                <Button x:Name="BtnAddStuff"
                     Width="300"
                     Height="20"
                     Content="Добавить"
