@@ -58,15 +58,15 @@ namespace ShopStoreVG.Pages.AdminPages
             user.Login = TbLogin.Text;
             user.Password = TbPsw.Text;
             user.IDRole = (CmbRole.SelectedItem as EmpRole).IDRole;
-            user.LastName = TbLName.Text;
-            user.Firstname = TbFName.Text;
-            user.Patronumic = TbPatronymic.Text;
+            employee.LastName = TbLName.Text;
+            employee.FirstName = TbFName.Text;
+            employee.Patronymic = TbPatronymic.Text;
 
             EFClass.Context.Employee.Add(employee);
             EFClass.Context.User.Add(user);
             EFClass.Context.SaveChanges();
 
-            NavigationService.Navigate(new Uri("/Pages/PublicPages/StaffPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/AdminPages/StaffPage.xaml", UriKind.Relative));
         }
     }
 }

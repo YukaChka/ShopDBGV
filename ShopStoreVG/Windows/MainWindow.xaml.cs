@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopStoreVG.ClassHelper;
+using ShopStoreVG.DB;
+using System.IO;
+using Microsoft.Win32;
 
 
 namespace ShopStoreVG
@@ -28,6 +32,11 @@ namespace ShopStoreVG
             ClassHelper.NavigateClass.frame = MainFrame;
             MainFrame.Navigate(new RegistrationPage());
         }
-        
+
+        private void PersBasket_Click(object sender, RoutedEventArgs e)
+        {
+            ClassHelper.NavigateClass.frame = MainFrame;
+            MainFrame.Navigate(new Basket());
+        }
     }
 }

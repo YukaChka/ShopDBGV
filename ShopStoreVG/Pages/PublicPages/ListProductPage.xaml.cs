@@ -63,5 +63,32 @@ namespace ShopStoreVG.Pages.PublicPages
 
             GetListProduct();
         }
+        private void BtnCart_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            ClassHelper.CartClass.products.Add(selectedProduct);
+
+            GetCountCartProduct();
+        }
+
+        private void BtnGoToCart_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/BasketPage.xaml", UriKind.Relative));
+
+            GetCountCartProduct();
+        }
+        private void GetCountCartProduct()
+        {
+            TxtCartCount.Text = ClassHelper.CartClass.products.Count.ToString();
+        }
     }
 }

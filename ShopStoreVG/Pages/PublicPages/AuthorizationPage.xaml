@@ -63,7 +63,9 @@
                 Margin="0 40 0 0 " 
                 HorizontalAlignment="Center"
                 Content="Вход"
-                Click="BtnSignIn_Click">
+                Click="BtnSignIn_Click"
+                Background="#FFF2DDC6"
+                BorderBrush="#B39F7A">
 
             </Button>
 

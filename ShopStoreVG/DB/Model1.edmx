@@ -19,6 +19,7 @@
           </Key>
           <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -27,6 +28,9 @@
           <Property Name="IDEmployee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
           <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EmpRole">
           <Key>
@@ -133,11 +137,10 @@
           <Property Name="IDRole" Type="int" />
           <Property Name="IdGender" Type="int" />
           <Property Name="Birhday" Type="datetime" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
-          <Property Name="Patronumic" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nchar" MaxLength="12" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Client_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -503,6 +506,7 @@
           </Key>
           <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="ShopStoreVGModel.FK_Client_User" FromRole="Client" ToRole="User" />
           <NavigationProperty Name="ProductSale" Relationship="ShopStoreVGModel.FK_ProductSale_Client" FromRole="Client" ToRole="ProductSale" />
         </EntityType>
@@ -513,6 +517,9 @@
           <Property Name="IDEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="ShopStoreVGModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
           <NavigationProperty Name="ProductSale" Relationship="ShopStoreVGModel.FK_ProductSale_Employee" FromRole="Employee" ToRole="ProductSale" />
         </EntityType>
@@ -637,11 +644,10 @@
           <Property Name="IDRole" Type="Int32" />
           <Property Name="IdGender" Type="Int32" />
           <Property Name="Birhday" Type="DateTime" Precision="3" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronumic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="ShopStoreVGModel.FK_Client_User" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="ShopStoreVGModel.FK_Employee_User" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="EmpRole" Relationship="ShopStoreVGModel.FK_User_EmpRole" FromRole="User" ToRole="EmpRole" />
@@ -833,6 +839,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="ShopStoreVGModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
               </MappingFragment>
@@ -841,6 +848,9 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="ShopStoreVGModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
@@ -956,11 +966,10 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ShopStoreVGModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Patronumic" ColumnName="Patronumic" />
-                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Birhday" ColumnName="Birhday" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="IDRole" ColumnName="IDRole" />

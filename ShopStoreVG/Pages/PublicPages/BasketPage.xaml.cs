@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopStoreVG.ClassHelper;
+using ShopStoreVG.DB;
+using System.IO;
+using ShopStoreVG.Pages.AdminPages;
 
 namespace ShopStoreVG.Pages
 {
@@ -20,9 +24,37 @@ namespace ShopStoreVG.Pages
     /// </summary>
     public partial class Basket : Page
     {
-        public Basket()
+     
+            public Basket()
+            {
+                InitializeComponent();
+                GetListProduct();
+            }
+
+            private void GetListProduct()
+            {
+                LvCartProduct.ItemsSource = ClassHelper.CartClass.products;
+            }
+
+        private void BtnGoToProduct_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+            NavigationService.Navigate(new Uri("/Pages/PublicPages/ListProductPage.xaml", UriKind.Relative));
+        }
+
+        private void BtnRemoveProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            ClassHelper.CartClass.products.Remove(selectedProduct);
+
+            GetRemoveCartProduct();
         }
     }
 }

@@ -34,18 +34,15 @@ namespace ShopStoreVG.Pages.AdminPages
         }
         private void GetListProduct()
         {
-            var q = from u in ent.User join emp in ent.Employee on u.IDUser equals emp.IDUser join r in ent.Role on u.IDRole equals r.IDRole
-                   select new { LastName = u.LastName, FirstName = u.Firstname, Patronumic = u.Patronumic, Phone = u.Phone, Email = u.Email, Role = r.NameRole, Salary = emp.Salary };
+            //var q = from u in ent.User join emp in ent.Employee on u.IDUser equals emp.IDUser join r in ent.Role on u.IDRole equals r.IDRole
+            //       select new { LastName = u.LastName, FirstName = u.Firstname, Patronumic = u.Patronumic, Phone = u.Phone, Email = u.Email, Role = r.NameRole, Salary = emp.Salary };
 
 
 
-            //List<Employee> staff = new List<Employee>();
-
-            List x = 
-
-
-
-            LvStaff.ItemsSource = q;
+            List<Employee> staff = new List<Employee>();
+            staff = EFClass.Context.Employee.ToList();
+            //List x =
+            LvStaff.ItemsSource = staff;
         }
 
         private void BtnAddStaff_Click(object sender, RoutedEventArgs e)

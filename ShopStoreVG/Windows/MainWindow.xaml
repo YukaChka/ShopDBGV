@@ -37,11 +37,12 @@
         <Button x:Name="PersAccount" 
                     Grid.Row="1"
                     Grid.Column="0"
-                Content="Button" Margin="0,113,0,717" 
+                Content="Button" Margin="0,30,0,0" Height="40" VerticalAlignment="Top" 
 
 />
         <Button x:Name="PersBasket"
                 Grid.Column="1" Margin="1671,0,-1312,0" RenderTransformOrigin="0.54,0.628"
+                Click="PersBasket_Click"
                 >
             <Button.Background>
                 <ImageBrush ImageSource="/Windows/pngegg (1).png"/>

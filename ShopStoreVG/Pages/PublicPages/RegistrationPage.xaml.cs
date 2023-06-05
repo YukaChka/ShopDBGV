@@ -108,7 +108,7 @@ namespace ShopStoreVG.Pages
                 Birhday = DpBirthday.SelectedDate.Value,
                 IdGender = (CmbGender.SelectedItem as Gender).IdGender,
                 LastName = RegLName.Text,
-                Firstname = RegFName.Text,
+                FirstName = RegFName.Text,
                 Email = RegMail.Text,
                 Phone = RegPhone.Text,
 

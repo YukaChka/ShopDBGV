@@ -314,6 +314,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Res\крестик.png" />
     <Resource Include="Windows\pngegg %281%29.png" />
     <Resource Include="Res\pngegg %281%29.png" />
     <Resource Include="Res\slon.jpg" />
